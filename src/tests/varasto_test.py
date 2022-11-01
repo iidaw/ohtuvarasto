@@ -56,7 +56,7 @@ class TestVarasto(unittest.TestCase):
 
     def test_lisaa_varastoon_neg_maara(self):
         self.varasto.lisaa_varastoon(-2)
-        self.assertAlmostEqual("", "")
+        self.assertAlmostEqual(self.varasto.saldo, 0)
 
     def test_lisaa_varastoon_tilaa_riittaa(self):
         self.varasto.lisaa_varastoon(2)
@@ -67,8 +67,7 @@ class TestVarasto(unittest.TestCase):
         self.assertAlmostEqual(self.varasto.saldo, 10)
 
     def test_ota_varastosta_neg_maara(self):
-        self.varasto.ota_varastosta(-2)
-        self.assertAlmostEqual("-2", "-2")
+        self.assertAlmostEqual(self.varasto.ota_varastosta(-2), 0.0)
 
     def test_ota_varastosta_enemman_kuin_saldo(self):
         self.varasto.ota_varastosta(2)
